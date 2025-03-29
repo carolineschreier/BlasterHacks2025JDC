@@ -1,0 +1,16 @@
+{
+    "intents": [
+        {"tag":"Greetings",
+        "patterns": ["Hello", "Hi", "Hey", "What's up", "How are you", "What's going on", "How's it going", "Long time no see", "It's great to see you", "I'm glad you're here", "Welcome back", "Good to see you", "How have you been", "What's new with you", "How's life", "It's been a while", "Nice to see you", "I've missed you", "Good morning", "Good afternoon", "Good evening", "It's nice to meet you"],
+        "responses": ["Hello!", "Hey!", "Hello user!", "Hi!"]
+        },
+        {"tag":"How are you",
+        "patterns": [ "Hey, what's up", "Hi, how are you", "Hey, how's it going", "What's good", "Hi, what's new", "Hey, how's life", "How are you doing", "What's happening", "How's everything", "Hi, how's it going", "Hey, what's new with you", "What's up with you", "Hi, how's life been", "Hey, how was your day", "What's new with you", "Hi, how's your day", "Hey, what's going on" ],
+        "responses": [ "I'm doing well, thanks", "Not much, just got back from a trip", "I'm good, just busy with work", "All good, just hanging out", "Just got back from the gym, feeling great", "I'm doing alright, just tired", "Been better, been worse", "Just got back from a run, feeling good", "Not much, just relaxing at home", "Just watched a great movie, recommend it", "Just had a good meal, feeling full", "I'm good, just need some coffee", "Just got back from a walk, feeling refreshed", "Not much, just getting some work done", "Just had a great conversation, feeling inspired" ]
+        },
+        {"tag":"Goodbye",
+        "patterns": ["Goodbye", "See you later", "Catch you later", "I'm out", "Later dude", "Take it easy", "See you soon", "I'm off", "Peace out", "Take care", "Talk to you soon", "I'll catch you later", "See you around", "Have a good one", "Laters", "I'm gone", "All the best", "So long", "I'll talk to you later"],
+        "reponses": ["It was great talking to you", "Same to you", "You too", "Have a nice day", "Take care", "Talk to you soon", "See you later", "Have fun", "Stay in touch", "All the best", "You're welcome", "See you around", "Take it easy", "Cheers", " Bye for now", "We'll catch up soon", "Have a great day", "Stay safe", "Looking forward to it"]
+        }
+    ]
+}
