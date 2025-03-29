@@ -7,7 +7,7 @@ from handlers import user_handler
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    engine = create_engine(DB_URL)
+    engine = create_engine(sqlite:///./app.db)
     app.state.db = engine
     try:
         yield
