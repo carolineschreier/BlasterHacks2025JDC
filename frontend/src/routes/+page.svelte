@@ -1,8 +1,11 @@
 <script>
     import { goto } from '$app/navigation';
     import { user } from '../stores/auth';
+    import { Pane, Splitpanes } from 'svelte-splitpanes';
+
 
     import { onMount } from 'svelte';
+    import { Container } from '@svelteuidev/core'
 
     let posts = [];
 
@@ -68,36 +71,11 @@
 </script>
   
 <main class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-4">Posts</h1>
+    <h1 class="text-3xl font-bold mb-4">Chat</h1>
     
-    {#if $user != null}
-    <div class="mb-6">
-      <div class="flex items-center space-x-2">
-        <input
-          type="text"
-          placeholder="New post title"
-          bind:value={newPostTitle}
-          class="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          type="text"
-          placeholder="New post content"
-          bind:value={newPostContent}
-          class="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
-        />
-        <button
-          on:click={addPost}
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Submit
-        </button>
-      </div>
-    </div>
-    {/if}
+    
 
-    {#if posts.length === 0}
-    <p class="text-gray-500">Loading posts...</p>
-  {:else}
+    <p class="text-gray-500">Sup dawgzzzz</p>
     <div class="space-y-6">
       {#each posts as post}
         <div class="w-full bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition duration-300 dark:bg-gray-800 dark:border-gray-700">
@@ -140,5 +118,5 @@
         </div>
       {/each}
     </div>
-  {/if}
   </main>
+  
