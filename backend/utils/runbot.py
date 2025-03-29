@@ -8,10 +8,10 @@ from nltk.stem import WordNetLemmatizer
 
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open("intense.json").read())
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('blasterbot.h5')
+intents = json.loads(open('utils/intense.json').read())
+words = pickle.load(open('utils/words.pkl', 'rb'))
+classes = pickle.load(open('utils/classes.pkl', 'rb'))
+model = load_model('utils/blasterbot.h5')
 
 def clean_up_sentences(sentence):
     sentence_words = nltk.word_tokenize(sentence)

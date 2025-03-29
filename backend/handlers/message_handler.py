@@ -11,6 +11,8 @@ from sqlalchemy.orm import Session
 
 import jwt
 
+from utils import runbot
+
 
 router = APIRouter(prefix="/chat")
 
@@ -25,7 +27,8 @@ async def chat(request: Request, chat_request: ChatRequest):
     with Session(request.app.state.db) as session:
         
         # 2. call chatbot
-        chat_response = "Hi hi hi hi hi hi!"
+        #chat_response = "Hi hi hi hi hi hi!"
+        chat_response = runbot.frontend_chat(chat_request.message)
 
         # 1. add user message to db
         # 3. add chatbot message to db
