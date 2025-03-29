@@ -9,7 +9,13 @@
     });
 
     let responseVal = "";
-    let chatVal = "";
+    let chatVal = [];
+
+    function handleClick(){
+      chatVal = [...chatVal, responseVal];
+      addResponse(responseVal);
+      responseVal = "";
+    }
 
     
     function addResponse(response_message) {
@@ -25,8 +31,8 @@
         .then((response) => response.json())
         .then((data) => {
             // getResponse();
-            chatVal = "Hi!";
-        });
+            chatVal = [...chatVal, data["chat_response"]];
+          });
     }
 
 </script>
@@ -37,12 +43,18 @@
     <Splitpanes class="default-theme" style="height: 400px">
       <Pane>
 		<Splitpanes class="default-theme" horizontal="{true}">
-			<Pane minSize={70}>{chatVal}</Pane>
+			<Pane minSize={70} >
+        {#each chatVal as chat}
+          <div>
+            {chat}
+          </div>
+        {/each}
+      </Pane>
 			<Pane>
         <div class="mb-6">
           <Label for="Query" class="mb-2">Talk to the chat bot</Label>
           <Input type="text" id="response" placeholder="Type here..." bind:value={responseVal} >
-            <Button type="submit" on:click={responseVal => addResponse(responseVal)} slot="right">Send</Button>
+            <Button type="submit" on:click={() => handleClick()} slot="right">Send</Button>
         </Input>
         </div>
       </Pane>

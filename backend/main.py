@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from sqlalchemy import create_engine
 from fastapi.middleware.cors import CORSMiddleware
-from handlers import user_handler
+from handlers import message_handler
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    engine = create_engine(sqlite:///./app.db)
+    engine = create_engine("sqlite:///./app.db")
     app.state.db = engine
     try:
         yield
@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(user_handler.router)
+app.include_router(message_handler.router)
 
 @app.get("/")
 def read_root():

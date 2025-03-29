@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 
 from pydantic import BaseModel
 
-from models.models import User
+from models.models import RequestTable
 
 import hashlib
 
@@ -18,25 +18,30 @@ class ChatRequest(BaseModel):
     message: str
 
 @router.post("/")
-async def chat(request: Request, chat_request: ChatRequest, user_message):
+async def chat(request: Request, chat_request: ChatRequest):
     """
     return response for user's chat
     """
     with Session(request.app.state.db) as session:
         
         # 2. call chatbot
-        chat_request = "Hi hi hi hi hi hi!"
+        chat_response = "Hi hi hi hi hi hi!"
 
         # 1. add user message to db
         # 3. add chatbot message to db
-        request = Request(
-            usr_message=message,
-            chat_response=chat_request
+        request = RequestTable(
+            usr_message=chat_request.message,
+            chat_response=chat_response
 
         )
-        # 4. return chatbot msg
         session.add(request)
         session.commit()
+        # 4. return chatbot msg
+        return JSONResponse(
+            status_code=200,
+            content={"chat_response": chat_response}
+        )
+
 
 
     
