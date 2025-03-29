@@ -15,14 +15,14 @@
 		<Navbar class="h-16">
 			<NavBrand href="/">
 				<img src="/logo.svg" class="mr-3 h-6 sm:h-9" alt="Logo" />
-				<span class="self-center whitespace-nowrap text-xl font-semibold">My App</span>
+				<span class="self-center whitespace-nowrap text-xl font-semibold">Chatbot Carbon Tracker</span>
 			</NavBrand>
 			<NavUl>
 				<NavLi href="/">Home</NavLi>
 				{#if $user != null}
 					<NavLi on:click={logout} href="/">Logout</NavLi>
 				{:else}
-					<NavLi href="/login">Login</NavLi>
+					<NavLi href="/Login">Carbon Offset</NavLi>
 				{/if}
 			</NavUl>
 		</Navbar>
