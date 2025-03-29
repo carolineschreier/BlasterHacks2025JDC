@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense
 
-# Prepare the conversation data
+# Prepare the conversation data - make sure inputs and responses lists are same size
 inputs = ["Hello", "How are you?", "What's your name?"]
 responses = ["Hi there!", "I'm doing well, thanks.", "I'm a chatbot."]
 
