@@ -1,3 +1,6 @@
+# Original article for original chatbot: https://handsonai.medium.com/developing-a-simple-chatbot-with-python-and-tensorflow-a-step-by-step-tutorial-0d35767e113b
+# Helpful stack overflow post for fixing error from article: https://stackoverflow.com/questions/78089650/tensorflow-keras-error-attributeerror-tuple-object-has-no-attribute-lower
+
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
