@@ -6,6 +6,8 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense
+import time
+from codecarbon import EmissionsTracker
 
 # Prepare the conversation data - make sure inputs and responses lists are same size
 inputs = ["Hello", "How are you?", "What's your name?"]
@@ -39,8 +41,14 @@ model = Sequential([
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
+tracker = EmissionsTracker()
+tracker.start()
+
 # Fit the model
 model.fit(X, y, epochs=50, verbose=1)
+
+emissions: float = tracker.stop()
+print(f"Emissions: {emissions} kg")
 
 def generate_response(input_text):
     input_seq = tokenizer.texts_to_sequences([input_text])
@@ -53,5 +61,9 @@ def generate_response(input_text):
 # Interaction loop
 while True:
     user_input = input(">>> ")
+    responseTracker = EmissionsTracker()
+    responseTracker.start()
     response = generate_response(user_input)
+    emissions: float = responseTracker.stop()
+    print(f"Emissions: {emissions} kg")
     print(f"Chatbot: {response}")
