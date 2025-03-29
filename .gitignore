@@ -245,6 +245,9 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
+#Not using docker
+*.db
+
 # Yarn Integrity file
 .yarn-integrity
 
