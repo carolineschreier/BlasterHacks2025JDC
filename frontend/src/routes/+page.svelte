@@ -1,6 +1,8 @@
 <script>
     import { goto } from '$app/navigation';
     import { user } from '../stores/auth';
+    import { Pane, Splitpanes } from 'svelte-splitpanes';
+
 
     import { onMount } from 'svelte';
 
