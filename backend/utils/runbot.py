@@ -5,9 +5,6 @@ import numpy as np
 import nltk 
 from keras.models import load_model 
 from nltk.stem import WordNetLemmatizer 
-from codecarbon import EmissionsTracker
-
-tracker = EmissionsTracker()
 
 lemmatizer = WordNetLemmatizer()
 
@@ -53,8 +50,6 @@ def get_response(intents_list, intents_json):
     return result
 
 def frontend_chat(message):
-    tracker.start()
     ints = predict_class(message)
     res = get_response(ints, intents)
-    tracker.stop()
-    return res
+    return res, emissions

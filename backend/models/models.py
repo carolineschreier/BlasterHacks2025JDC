@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -8,5 +8,6 @@ class RequestTable(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     usr_message = Column(String)
     chat_response = Column(String)
+    emissions = Column(Float)
 
     

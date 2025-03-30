@@ -10,11 +10,13 @@
 
     let responseVal = "";
     let chatVal = [];
+    let totalEmissions = 0;
 
     function handleClick(){
       chatVal = [...chatVal, responseVal];
       addResponse(responseVal);
       responseVal = "";
+
     }
 
     
@@ -32,6 +34,7 @@
         .then((data) => {
             // getResponse();
             chatVal = [...chatVal, data["chat_response"]];
+            totalEmissions += data["emissions"];
           });
     }
 
@@ -60,7 +63,7 @@
       </Pane>
 		</Splitpanes>
     </Pane>
-      <Pane>This is where environmental info will go</Pane>
+      <Pane>{totalEmissions}</Pane>
     </Splitpanes>
   </main>
   

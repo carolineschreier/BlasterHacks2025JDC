@@ -28,21 +28,21 @@ async def chat(request: Request, chat_request: ChatRequest):
         
         # 2. call chatbot
         #chat_response = "Hi hi hi hi hi hi!"
-        chat_response = runbot.frontend_chat(chat_request.message)
+        chat_response, emissions_val = runbot.frontend_chat(chat_request.message)
 
         # 1. add user message to db
         # 3. add chatbot message to db
         request = RequestTable(
             usr_message=chat_request.message,
-            chat_response=chat_response
-
+            chat_response=chat_response,
+            #emissions=emissions_val
         )
         session.add(request)
         session.commit()
         # 4. return chatbot msg
         return JSONResponse(
             status_code=200,
-            content={"chat_response": chat_response}
+            content={"chat_response": chat_response}#, "emissions": emissions_val}
         )
 
 
