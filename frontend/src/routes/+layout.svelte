@@ -8,14 +8,15 @@
 		user.set(null);
 		window.location.href = '/';
 	};
+
 </script>
 
 <div class="flex flex-col min-h-screen">
 	<header class="flex-none">
 		<Navbar class="h-16">
-			<NavBrand href="/">
-				<img src="/logo.svg" class="mr-3 h-6 sm:h-9" alt="Logo" />
-				<span class="self-center whitespace-nowrap text-xl font-semibold">Chatbot Carbon Tracker</span>
+			<NavBrand href="/">				  
+				<img src="src/routes/IMG.png" class="mr-3 h-6 sm:h-9" alt="Logo" style="width:12%; height:12%"/>
+				<span class="self-center whitespace-nowrap text-xl font-semibold"> </span>
 			</NavBrand>
 			<NavUl>
 				<NavLi href="/">Home</NavLi>

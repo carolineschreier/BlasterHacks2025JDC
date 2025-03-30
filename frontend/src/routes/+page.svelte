@@ -62,8 +62,7 @@
 </script>
 
 <main class="container mx-auto p-4">
-  <h1 class="text-3xl font-bold mb-4">Chat</h1>
-  <p class="text-gray-500">Sup dawgzzzz</p>
+  <h1 class="text-3xl font-bold mb-4"></h1>
   <Splitpanes class="default-theme" style="height: 400px">
       <Pane minSize={100}>
           <Splitpanes class="default-theme" horizontal="{true}">
@@ -92,23 +91,24 @@
       </Pane >
       <Pane minSize={100} >
           <div>
-              <P align="center" size="4xl" weight="extrabold" >Carbon Dioxide Emissions:</P>
+              <P align="center" size="4xl" weight="extrabold" >Carbon Dioxide Emissions</P>
               <div style="display: inline; float: left; padding-left:20px"> 
-                <P size="4xl" weight="extrabold"> {totalEmissions} </P>
+                <P size="2xl" weight="extrabold"> Our PC </P>
+                <P size="4xl" weight="extrabold"> {totalEmissions.toFixed(4)} </P>
               </div>
               <div style="display: inline; float: right; padding-right:20px"> 
-                <P size="4xl" weight="extrabold"> {totalEmissions2} </P>
+                <P size="2xl" weight="extrabold"> ChatGPT </P>
+                <P size="4xl" weight="extrabold"> {totalEmissions2.toFixed(4)} </P>
               </div>
           </div>
-          <div class="flex justify-center" style="padding-left:20px; padding-right:20px;">
-              <div class="thermo" style="height: 50vh; width: 6vw; margin-right: 20px;">
+          <div class="flex justify-center" style="padding-left:20px; padding-right:20px; padding-top:30px">
+              <div class="thermo" style="height: 50vh; width: 6vw; margin-right: 20px; ">
                   <div class="mercury" style={`height: ${getMercuryHeight()}vh`}></div>
               </div>
               <div class="thermo" style="height: 50vh; width: 6vw;">
                   <div class="mercury" style={`height: ${getMercuryHeight2()}vh`}></div>
               </div>
           </div>
-
       </Pane>
   </Splitpanes>
 </main>
