@@ -11,6 +11,7 @@
   let responseVal = "";
   let chatVal = [];
   let totalEmissions = 0.0;
+  let totalEmissions2 = 0.0;
 
   function handleClick(){
     chatVal = [...chatVal, responseVal];
@@ -34,20 +35,21 @@
       .then((data) => {
           chatVal = [...chatVal, data["chat_response"]];
           totalEmissions = totalEmissions + data["emissions"];
+          totalEmissions2 = totalEmissions2 + 4.32;
       });
   }
 
   function getMercuryHeight() {
       if (totalEmissions <= 0) {
-          return 0;
+          return 1;
       } else if (totalEmissions >= 0.00005 && totalEmissions < 0.00008) {
-          return 10;
+          return 2;
       } else if (totalEmissions >= 0.00008 && totalEmissions < 0.00010) {
-          return 15;
+          return 3;
       } else if (totalEmissions >= 0.00010 && totalEmissions < 0.00015) {
-          return 20;
+          return 4;
       } else if (totalEmissions >= 0.00015) {
-          return 25;
+          return 5;
       } 
       else {
           return totalEmissions;
@@ -55,20 +57,7 @@
   }
 
   function getMercuryHeight2() {
-    if (totalEmissions <= 0) {
-          return 0;
-      } else if (totalEmissions >= 0.00005 && totalEmissions < 0.000005) {
-          return 10;
-      } else if (totalEmissions >= 0.00008 && totalEmissions < 0.00001) {
-          return 30;
-      } else if (totalEmissions >= 0.00010 && totalEmissions < 0.00008) {
-          return 40;
-      } else if (totalEmissions >= 0.00009) {
-          return 50;
-      } 
-      else {
-          return totalEmissions;
-      }
+    return ((totalEmissions2 / (4.32)) * 5) + 1;
   }
 </script>
 
@@ -103,8 +92,13 @@
       </Pane >
       <Pane minSize={100} >
           <div>
-              <P align="center" size="4xl" weight="extrabold">Carbon Dioxide Emissions:</P>
-              <P align="center" size="4xl" weight="extrabold">{totalEmissions}</P>
+              <P align="center" size="4xl" weight="extrabold" >Carbon Dioxide Emissions:</P>
+              <div style="display: inline; float: left; padding-left:20px"> 
+                <P size="4xl" weight="extrabold"> {totalEmissions} </P>
+              </div>
+              <div style="display: inline; float: right; padding-right:20px"> 
+                <P size="4xl" weight="extrabold"> {totalEmissions2} </P>
+              </div>
           </div>
           <div class="flex justify-center" style="padding-left:20px; padding-right:20px;">
               <div class="thermo" style="height: 50vh; width: 6vw; margin-right: 20px;">
@@ -114,6 +108,7 @@
                   <div class="mercury" style={`height: ${getMercuryHeight2()}vh`}></div>
               </div>
           </div>
+
       </Pane>
   </Splitpanes>
 </main>
