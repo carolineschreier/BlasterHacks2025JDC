@@ -10,7 +10,7 @@
         },
         {"tag":"Goodbye",
         "patterns": ["Goodbye", "See you later", "Catch you later", "I'm out", "Later dude", "Take it easy", "See you soon", "I'm off", "Peace out", "Take care", "Talk to you soon", "I'll catch you later", "See you around", "Have a good one", "Laters", "I'm gone", "All the best", "So long", "I'll talk to you later"],
-        "reponses": ["It was great talking to you", "Same to you", "You too", "Have a nice day", "Take care", "Talk to you soon", "See you later", "Have fun", "Stay in touch", "All the best", "You're welcome", "See you around", "Take it easy", "Cheers", " Bye for now", "We'll catch up soon", "Have a great day", "Stay safe", "Looking forward to it"]
+        "responses": ["It was great talking to you", "Same to you", "You too", "Have a nice day", "Take care", "Talk to you soon", "See you later", "Have fun", "Stay in touch", "All the best", "You're welcome", "See you around", "Take it easy", "Cheers", " Bye for now", "We'll catch up soon", "Have a great day", "Stay safe", "Looking forward to it"]
         }
     ]
 }
