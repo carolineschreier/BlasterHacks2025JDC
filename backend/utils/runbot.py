@@ -5,8 +5,12 @@ import numpy as np
 import nltk 
 from keras.models import load_model 
 from nltk.stem import WordNetLemmatizer 
+from codecarbon import EmissionsTracker
+
 
 lemmatizer = WordNetLemmatizer()
+
+tracker = EmissionsTracker()
 
 intents = json.loads(open('utils/intense.json').read())
 words = pickle.load(open('utils/words.pkl', 'rb'))
@@ -50,6 +54,11 @@ def get_response(intents_list, intents_json):
     return result
 
 def frontend_chat(message):
+    tracker = EmissionsTracker(allow_multiple_runs = True)
+    tracker.start()
     ints = predict_class(message)
     res = get_response(ints, intents)
+    tracker.stop()
+    emissions: float = tracker.stop()
+    print(emissions)
     return res, emissions

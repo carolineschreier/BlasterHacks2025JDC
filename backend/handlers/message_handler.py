@@ -35,14 +35,14 @@ async def chat(request: Request, chat_request: ChatRequest):
         request = RequestTable(
             usr_message=chat_request.message,
             chat_response=chat_response,
-            #emissions=emissions_val
+            emissions=emissions_val
         )
         session.add(request)
         session.commit()
         # 4. return chatbot msg
         return JSONResponse(
             status_code=200,
-            content={"chat_response": chat_response}#, "emissions": emissions_val}
+            content={"chat_response": chat_response,"emissions": emissions_val}
         )
 
 
