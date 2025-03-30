@@ -23,7 +23,7 @@
 				{#if $user != null}
 					<NavLi on:click={logout} href="/">Logout</NavLi>
 				{:else}
-					<NavLi href="/Login">Carbon Offset</NavLi>
+					<NavLi href="https://climatetrade.com/">Carbon Offset</NavLi>
 				{/if}
 			</NavUl>
 		</Navbar>
