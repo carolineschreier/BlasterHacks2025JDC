@@ -63,11 +63,11 @@
 
 <main class="container mx-auto p-4">
   <h1 class="text-3xl font-bold mb-4"></h1>
-  <Splitpanes class="default-theme" style="height: 400px">
+  <Splitpanes class="default-theme" style="height: 600px">
       <Pane minSize={100}>
           <Splitpanes class="default-theme" horizontal="{true}">
               <Pane minSize={70} class="pane" >
-                  <div style= "max-height:250px; overflow-y:auto ">
+                  <div style= "max-height:400px; overflow-y:auto ">
                       {#each chatVal as chat, index}
                           <div style="padding-left:20px; padding-right:20px;" >
                               {#if index % 2 == 0}
