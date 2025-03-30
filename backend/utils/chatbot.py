@@ -179,8 +179,12 @@ from keras.models import Sequential
 from nltk.stem import WordNetLemmatizer
 from keras.layers import Dense,Activation,Dropout
 from keras.optimizers import SGD
+#from codecarbon import EmissionsTracker
 
 lemmatizer = WordNetLemmatizer()
+
+#tracker = EmissionsTracker(allow_multiple_runs = True)
+#tracker.start()
 
 intents = json.loads(open("intense.json").read())
 
@@ -248,3 +252,6 @@ hist = model.fit(
 )
 
 model.save("blasterbot.h5", hist)
+
+#emissions: float = tracker.stop()
+#print(emissions)

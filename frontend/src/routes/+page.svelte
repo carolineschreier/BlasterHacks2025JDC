@@ -3,14 +3,14 @@
     import { user } from '../stores/auth';
     import { Pane, Splitpanes } from 'svelte-splitpanes';
     import { onMount } from 'svelte';
-    import { Input, Label, Helper, Button} from 'flowbite-svelte';
+    import { Input, Label, Helper, Button, P} from 'flowbite-svelte';
 
     onMount(() => {
     });
 
     let responseVal = "";
     let chatVal = [];
-    let totalEmissions = 0;
+    let totalEmissions = 0.0;
 
     function handleClick(){
       chatVal = [...chatVal, responseVal];
@@ -47,11 +47,19 @@
       <Pane>
 		<Splitpanes class="default-theme" horizontal="{true}">
 			<Pane minSize={70} >
-        {#each chatVal as chat}
-          <div>
-            {chat}
+        
+        {#each chatVal as chat, index}
+          <div style="padding-left:20px; padding-right:20px;" >
+            
+              {#if index % 2 == 0}
+                <P align="right" color="text-blue-700 dark:text-blue-500" size="xl">{chat}</P>
+              {:else}
+                <P align="left" size="xl">{chat}</P>
+              {/if}
+            
           </div>
         {/each}
+        
       </Pane>
 			<Pane>
         <div class="mb-6">
@@ -63,7 +71,13 @@
       </Pane>
 		</Splitpanes>
     </Pane>
-      <Pane>{totalEmissions}</Pane>
+      <Pane>
+        <div>
+          <P align="center" size="4xl" weight="extrabold">Carbon Dioxide Emissions:</P>
+          <P align="center" size="4xl" weight="extrabold">{totalEmissions}</P>
+
+        </div>
+      </Pane>
     </Splitpanes>
   </main>
   

@@ -42,7 +42,7 @@ async def chat(request: Request, chat_request: ChatRequest):
         # 4. return chatbot msg
         return JSONResponse(
             status_code=200,
-            content={"chat_response": chat_response,"emissions": emissions_val}
+            content={"chat_response": chat_response,"emissions": emissions_val, }
         )
 
 
