@@ -46,27 +46,26 @@
     <Splitpanes class="default-theme" style="height: 400px">
       <Pane>
 		<Splitpanes class="default-theme" horizontal="{true}">
-			<Pane minSize={70} >
-        
-        {#each chatVal as chat, index}
-          <div style="padding-left:20px; padding-right:20px;" >
-            
-              {#if index % 2 == 0}
-                <P align="right" color="text-blue-700 dark:text-blue-500" size="xl">{chat}</P>
-              {:else}
-                <P align="left" size="xl">{chat}</P>
-              {/if}
-            
-          </div>
-        {/each}
-        
+			<Pane minSize={70} class="pane" >
+        <div style= "max-height:250px; overflow-y:auto ">
+          {#each chatVal as chat, index}
+            <div style="padding-left:20px; padding-right:20px;" >
+              
+                {#if index % 2 == 0}
+                  <P align="right" color="text-blue-700 dark:text-blue-500" size="xl">{chat}</P>
+                {:else}
+                  <P align="left" size="xl">{chat}</P>
+                {/if}
+            </div>
+          {/each} 
+        </div>       
       </Pane>
 			<Pane>
         <div class="mb-6">
           <Label for="Query" class="mb-2">Talk to the chat bot</Label>
           <Input type="text" id="response" placeholder="Type here..." bind:value={responseVal} >
             <Button type="submit" on:click={() => handleClick()} slot="right">Send</Button>
-        </Input>
+          </Input>
         </div>
       </Pane>
 		</Splitpanes>
@@ -75,10 +74,15 @@
         <div>
           <P align="center" size="4xl" weight="extrabold">Carbon Dioxide Emissions:</P>
           <P align="center" size="4xl" weight="extrabold">{totalEmissions}</P>
-
         </div>
       </Pane>
     </Splitpanes>
   </main>
-  
+
+  <style>
+    .pane {
+      height: 200px; /* Set a fixed height */
+      overflow-y: auto; /* Add vertical scrolling */
+    }
+  </style>
   
